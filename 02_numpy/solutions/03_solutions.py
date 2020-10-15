@@ -1,0 +1,8 @@
+arr_zeros = np.zeros((2, 3, 4))
+print(arr_zeros)
+print('Shape of the array\n', arr_zeros.shape)
+print('Number of dimensions\n', arr_zeros.ndim)
+arr_ones = np.ones((2, 3, 4))
+print(arr_ones)
+print('Shape of the array\n', arr_ones.shape)
+print('Number of dimensions\n', arr_ones.ndim)

@@ -1,0 +1,13 @@
+name: dsc
+channels:
+  - defaults
+dependencies:
+  - scikit-learn
+  - jupyterlab
+  - pandas
+  - seaborn
+  - nodejs
+  - matplotlib
+  - ipywidgets
+  - geopandas
+  - descartes
