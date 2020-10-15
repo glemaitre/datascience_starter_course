@@ -1,17 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
-from sklearn.datasets import make_blobs
-from sklearn.tree import DecisionTreeClassifier
-
+from matplotlib.colors import ListedColormap
 from scipy import ndimage
 
-from .tree_plotting import plot_tree as plot_tree_mpl
+from sklearn.datasets import make_blobs
+from sklearn.tree import (
+    DecisionTreeClassifier,
+    plot_tree,
+)
+
+cm2 = ListedColormap(['#1f77b4', '#ff7f0e'])
 
 X, y = make_blobs(centers=[[0, 0], [1, 1]], random_state=61526, n_samples=50)
 
 
-def plot_tree(max_depth=1):
+def plot_tree_and_boundary(max_depth=1):
     fig, ax = plt.subplots(1, 2, figsize=(10, 5))
     h = 0.02
 
@@ -29,10 +32,10 @@ def plot_tree(max_depth=1):
             np.c_[xx.ravel(), yy.ravel()].astype(np.float32))
         faces = faces.reshape(xx.shape)
         border = ndimage.laplace(faces) != 0
-        ax[0].contourf(xx, yy, Z, alpha=.4, cmap='RdBu_r')
+        ax[0].contourf(xx, yy, Z, alpha=.4, cmap="RdBu_r")
         ax[0].scatter(xx[border], yy[border], marker='.', s=1)
         ax[0].set_title("max_depth = %d" % max_depth)
-        plot_tree_mpl(tree, ax=ax[1], impurity=False, filled=True)
+        plot_tree(tree, ax=ax[1], impurity=False, filled=True)
         # ax[1].axis("off")
     else:
         ax[0].set_title("data set")
@@ -48,4 +51,4 @@ def plot_tree(max_depth=1):
 def plot_tree_interactive():
     from ipywidgets import interactive, IntSlider
     slider = IntSlider(min=0, max=8, step=1, value=0)
-    return interactive(plot_tree, max_depth=slider)
+    return interactive(plot_tree_and_boundary, max_depth=slider)
