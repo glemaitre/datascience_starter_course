@@ -30,10 +30,10 @@ notebooks:
 
 ``` bash
 conda env create -f environment.yml
-conda activate dsc
 ```
 
 ```bash
+conda activate dsc
 cd path/to/datascience_started_course
 jupyter notebook
 ```
