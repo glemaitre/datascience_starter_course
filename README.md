@@ -7,7 +7,7 @@ This lecture is focused on the following concepts:
 1. Introduction the Python programming language;
 2. Data wrangling using Pandas;
 3. Applied mathematics using NumPy;
-4. TODO: Understand linear models;
+4. Understand linear models;
 5. Understand tree-based algorithms;
 6. Evaluate a machine-learning model;
 7. Manage mixed data types in machine-learning pipeline;
